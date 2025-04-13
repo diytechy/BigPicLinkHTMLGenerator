@@ -67,7 +67,7 @@ $htmlContent = @"
 # Process each row and append to the HTML content
 foreach ($row in $data) {
     $url = $row.URL
-    $imagePath = $row.Picture
+    $imagePath = "Assets" + $sep.ToString() + $row.Picture
     $label = $row.Label
 
     $htmlContent += @"
