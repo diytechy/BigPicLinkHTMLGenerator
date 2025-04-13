@@ -1,10 +1,40 @@
+$scriptPathTst = $MyInvocation.MyCommand.Path
+if ($scriptPathTst) {$scriptPath = $scriptPathTst}
+$scriptDir = Split-Path $scriptPath
+Set-Location $scriptDir
 # Define input and output paths
 $excelFilePath = "LinkDefinitions.xlsx"
+$csvFileName = "LinkDefinitions.csv"
 $outputHtmlPath = "LinkPage.html"
 
-# Import the Excel file
-$data = Import-Excel -Path $excelFilePath
+#Resolve csv
+$sep = [System.IO.Path]::DirectorySeparatorChar
+$csvFilePath = $scriptDir.ToString() + $sep.ToString() + $csvFileName
 
+# Convert the Excel file
+$Full2XLSX = Resolve-Path $excelFilePath
+$ExcelFilePath = $Full2XLSX.Path.ToString()
+$Excel = New-Object -ComObject Excel.Application
+
+try{
+    $Workbook = $Excel.Workbooks.Open($ExcelFilePath)
+    foreach ($sheet in $Workbook.worksheets){
+        if(Test-Path -Path $csvFilePath){
+            remove-item $csvFilePath
+        }
+        $sheet.SaveAs($csvFilePath,6)
+    }
+} catch {Write-Error("Oh Darn!")}
+$Excel.Quit()
+[System.Runtime.InteropServices.Marshal]::ReleaseComObject($Excel)
+
+# Import the converted csv
+$data = Import-CSV $csvFilePath
+
+
+if(Test-Path -Path $outputHtmlPath){
+    remove-item $outputHtmlPath
+}
 # Start writing the HTML file
 $htmlContent = @"
 <!DOCTYPE html>
