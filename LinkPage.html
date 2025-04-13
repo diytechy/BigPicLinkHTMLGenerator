@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clickable Images and Labels</title>
+    <title>Tiled Images</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.5;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0;
+            padding: 20px;
+            justify-content: center;
         }
         .item {
-            margin-bottom: 20px;
+            text-align: center;
+            margin-bottom: 10px;
         }
         .item img {
-            max-width: 300px;
-            height: auto;
+            width: ;
+            height: ;
+            object-fit: cover;
+            border-radius: 8px;
         }
         .item a {
             text-decoration: none;
-            color: blue;
+            color: black;
+            font-size: 14px;
+        }
+        .item a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
