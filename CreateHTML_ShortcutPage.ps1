@@ -53,8 +53,8 @@ $htmlContent = @"
             margin: 5px;
         }
         img {
-            max-width: 150px;
-            max-height: 150px;
+            max-width: 300px;
+            max-height: 400px;
             object-fit: cover;
         }
     </style>
@@ -72,7 +72,7 @@ foreach ($row in $data) {
     <div class="item">
         <a href="$url" target="_blank">
             <img src="$imagePath" alt="$label">
-            <p>$label</p>
+            <p align="center">$label</p>
         </a>
     </div>
 "@
