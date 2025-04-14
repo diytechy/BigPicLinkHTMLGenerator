@@ -51,11 +51,18 @@ $htmlContent = @"
         }
         a {
             margin: 5px;
+            text-decoration: none !important;
         }
         img {
             max-width: 300px;
             max-height: 300px;
             object-fit: cover;
+        }
+        p {
+            color: black;
+            font-family: verdana;
+            font-size: 130%;
+            text-decoration: none !important;
         }
     </style>
 </head>
@@ -72,7 +79,7 @@ foreach ($row in $data) {
     <div class="item">
         <a href="$url" target="_blank">
             <img src="$imagePath" alt="$label">
-            <p style = "font-size:20px" align="center">$label</p>
+            <p align="center">$label</p>
         </a>
     </div>
 "@
