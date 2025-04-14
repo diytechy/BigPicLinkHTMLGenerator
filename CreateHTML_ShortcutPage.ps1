@@ -72,7 +72,7 @@ foreach ($row in $data) {
     <div class="item">
         <a href="$url" target="_blank">
             <img src="$imagePath" alt="$label">
-            <p align="center">$label</p>
+            <p style = "font-size:20px" align="center">$label</p>
         </a>
     </div>
 "@
