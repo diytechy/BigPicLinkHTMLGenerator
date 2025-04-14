@@ -54,7 +54,7 @@ $htmlContent = @"
         }
         img {
             max-width: 300px;
-            max-height: 400px;
+            max-height: 300px;
             object-fit: cover;
         }
     </style>
